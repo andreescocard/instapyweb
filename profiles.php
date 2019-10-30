@@ -26,7 +26,8 @@ foreach ($dbo->query('SELECT * FROM profiles ') as $row){
     <td><?php echo $row['id']; ?></td>
     <td><?php echo $row['name']; ?></td>
     <td>
-    <a href="singleprofile.php?id=<?php echo $row['id']; ?>" class="btn btn-dark">Single log</a>
+    <a href="singleprofile.php?id=<?php echo $row['id']; ?>" class="btn btn-dark">Progress</a>
+    <a href="activity.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Activity</a>
     <a href="https://instagram.com/<?php echo $row['name']; ?> "target="_blank" class="btn btn-info">Instagram</a>
     </td>
     </tr>

@@ -6,9 +6,11 @@ require("header.php");
 <thead>
             <tr>
                 <th>Profile</th>
-                <th>Followers</th>
-                <th>Following</th>
-                <th>Total Posts</th>
+                <th>Likes</th>
+                <th>Comments</th>
+                <th>Follows</th>
+                <th>Unfollows</th>
+                <th>Server calls</th>
                 <th>Created</th>
                 <th>Actions</th>
             </tr>
@@ -18,14 +20,16 @@ require("header.php");
 require('config.php');
 
 $dbo = new PDO("sqlite:".DBLOCATION);
-foreach ($dbo->query('SELECT * FROM accountsProgress ap join profiles p on p.id = ap.profile_id where p.id = '.$_GET['id'].' order by created desc limit 100') as $row){
+foreach ($dbo->query('SELECT * FROM recordActivity ra join profiles p on p.id = ra.profile_id where p.id = '.$_GET['id'].' order by created desc limit 100') as $row){
     ?>
 
     <tr>
     <td><?php echo $row['name']; ?></td>
-    <td><?php echo $row['followers']; ?></td>
-    <td><?php echo $row['following']; ?></td>
-    <td><?php echo $row['total_posts']; ?></td>
+    <td><?php echo $row['likes']; ?></td>
+    <td><?php echo $row['comments']; ?></td>
+    <td><?php echo $row['follows']; ?></td>
+    <td><?php echo $row['unfollows']; ?></td>
+    <td><?php echo $row['server_calls']; ?></td>
     <td><?php echo $row['created']; ?></td>
     <td> <a href="https://instagram.com/<?php echo $row['name']; ?> "target="_blank" class="btn btn-info">Instagram</a></td>
     </tr>

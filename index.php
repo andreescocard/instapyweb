@@ -5,7 +5,7 @@ require("header.php");
 <table id="instapy" class="table table-striped table-bordered" style="width:100%">
 <thead>
             <tr>
-                <th>Profiles</th>
+                <th>Profile</th>
                 <th>Followers</th>
                 <th>Following</th>
                 <th>Total Posts</th>
@@ -27,7 +27,8 @@ foreach ($dbo->query('SELECT * FROM accountsProgress ap join profiles p on p.id 
     <td><?php echo $row['total_posts']; ?></td>
     <td><?php echo $row['created']; ?></td>
     <td>
-    <a href="singleprofile.php?id=<?php echo $row['id']; ?>" class="btn btn-dark">Single log</a>
+    <a href="singleprofile.php?id=<?php echo $row['id']; ?>" class="btn btn-dark">Progress</a>
+    <a href="activity.php?id=<?php echo $row['id']; ?>" class="btn btn-danger">Activity</a>
     <a href="https://instagram.com/<?php echo $row['name']; ?> "target="_blank" class="btn btn-info">Instagram</a>
     </td>
     </tr>
